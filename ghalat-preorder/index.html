@@ -1,0 +1,2896 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GHALAT — Pre-Order Kaos Demo 2026</title>
+  <meta name="description" content="Pre-order kaos band GHALAT. Desain STATE OF ROT / MALFUNCTION. Harga Rp160.000, DP mulai Rp100.000. Isi form, transfer, lalu konfirmasi via WhatsApp.">
+  <meta name="theme-color" content="#F2EFE8">
+  <meta name="color-scheme" content="light">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="id_ID">
+  <meta property="og:site_name" content="GHALAT">
+  <meta property="og:title" content="GHALAT — Pre-Order Kaos Demo 2026">
+  <meta property="og:description" content="South Stomp Hardcore. Kaos STATE OF ROT / MALFUNCTION. Rp160.000. DP mulai Rp100.000. Slot terbatas.">
+
+  <!-- Favicon SVG inline -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230D0D0D'/%3E%3Ctext x='32' y='45' font-family='Arial Black,Arial' font-size='38' font-weight='900' text-anchor='middle' fill='%23F2EFE8'%3EG%3C/text%3E%3C/svg%3E">
+
+  <!-- Font: maksimal 2 keluarga -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================
+       1. DESIGN TOKENS
+       ========================================================== */
+    :root {
+      --paper: #F2EFE8;
+      --paper-2: #E8E4DA;
+      --paper-3: #DDD8CC;
+      --ink: #0D0D0D;
+      --red: #E03A1F;
+      --red-deep: #A6200C;
+      --muted: #4A463F;
+      --line-soft: rgba(13, 13, 13, 0.28);
+
+      --font-display: "Anton", "Arial Narrow", Impact, sans-serif;
+      --font-mono: "Space Mono", "Courier New", monospace;
+
+      --bg-image: url("assets/bg.jpg");
+
+      --border: 3px solid var(--ink);
+      --border-thick: 4px solid var(--ink);
+      --maxw: 1180px;
+      --gutter: clamp(1rem, 4vw, 2.5rem);
+      --section: clamp(3.5rem, 8vw, 6.5rem);
+      --t-fast: 120ms ease;
+      --t-med: 150ms ease;
+    }
+
+    /* ==========================================================
+       2. RESET & BASE
+       ========================================================== */
+    *,
+    *::before,
+    *::after { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font-mono);
+      font-size: 15px;
+      line-height: 1.55;
+      overflow-x: hidden;
+      background-image: var(--bg-image);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    /* Grain fotokopi via SVG feTurbulence data-URI */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.06;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+      background-size: 180px 180px;
+    }
+
+    ::selection {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    [hidden] { display: none !important; }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a { color: inherit; }
+
+    button,
+    input,
+    select,
+    textarea { font: inherit; }
+
+    h1, h2, h3, p, dl, dd, figure { margin: 0; }
+
+    :focus-visible {
+      outline: 2px solid var(--red);
+      outline-offset: 3px;
+    }
+
+    .wrap {
+      width: min(var(--maxw), calc(100% - var(--gutter) * 2));
+      margin-inline: auto;
+    }
+
+    .sr-only {
+      position: absolute !important;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .skip {
+      position: fixed;
+      top: 0.5rem;
+      left: 0.5rem;
+      z-index: 10000;
+      padding: 0.75rem 1rem;
+      background: var(--ink);
+      color: var(--paper);
+      border: 3px solid var(--paper);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transform: translateY(-160%);
+    }
+
+    .skip:focus { transform: translateY(0); }
+
+    /* ==========================================================
+       3. TOPBAR / MARQUEE
+       ========================================================== */
+    .topbar {
+      background: var(--ink);
+      color: var(--paper);
+      border-bottom: var(--border);
+      overflow: hidden;
+    }
+
+    .marquee {
+      overflow: hidden;
+      padding: 0.55rem 0;
+    }
+
+    .marquee__track {
+      display: flex;
+      width: max-content;
+      animation: marquee 26s linear infinite;
+    }
+
+    .marquee__group {
+      display: flex;
+      flex: none;
+      gap: 2rem;
+      padding-right: 2rem;
+      white-space: nowrap;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    @keyframes marquee {
+      to { transform: translateX(-50%); }
+    }
+
+    /* ==========================================================
+       4. HERO
+       ========================================================== */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-bottom: var(--border-thick);
+      padding: clamp(1.25rem, 3.5vw, 2.5rem) 0 clamp(2.5rem, 6vw, 4.5rem);
+    }
+
+    /* Halftone dots tipis */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.1;
+      background-image: radial-gradient(circle at center, var(--ink) 1px, transparent 1.2px);
+      background-size: 7px 7px;
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 30%, #000 72%, transparent 100%);
+      mask-image: linear-gradient(to bottom, transparent 0%, #000 30%, #000 72%, transparent 100%);
+    }
+
+    .hero .wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero__eyebrow {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding-bottom: 0.7rem;
+      border-bottom: 2px solid var(--ink);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .logo {
+      margin: clamp(0.75rem, 2vw, 1.5rem) 0 0;
+      line-height: 0.8;
+    }
+
+    .logo img {
+      width: auto;
+      max-height: clamp(180px, 32vw, 360px);
+      filter: grayscale(1) contrast(1.15);
+      mix-blend-mode: multiply;
+    }
+
+    .logo__text {
+      position: relative;
+      display: block;
+      font-family: var(--font-display);
+      font-size: clamp(8rem, 26vw, 24rem);
+      font-weight: 400;
+      line-height: 0.78;
+      letter-spacing: -0.035em;
+      text-transform: uppercase;
+      margin-left: -0.035em;
+    }
+
+    /* Duplikat teks bergeser: efek fotokopi */
+    .logo__text::before {
+      content: attr(data-text);
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      z-index: -1;
+      opacity: 0.24;
+      pointer-events: none;
+      mix-blend-mode: multiply;
+    }
+
+    .hero__sub {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-top: clamp(0.5rem, 1.5vw, 1rem);
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 4.2vw, 3rem);
+      line-height: 1;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .hero__sub::before {
+      content: "";
+      flex: none;
+      width: clamp(14px, 2vw, 22px);
+      height: clamp(14px, 2vw, 22px);
+      background: var(--red);
+    }
+
+    .hero__meta {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.5fr);
+      gap: 1rem 2rem;
+      margin-top: clamp(1.5rem, 4vw, 2.5rem);
+      border-top: 2px solid var(--ink);
+      padding-top: 0.85rem;
+    }
+
+    .hero__meta p {
+      display: grid;
+      gap: 0.25rem;
+    }
+
+    .hero__meta span {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--ink);
+      text-transform: uppercase;
+    }
+
+    .hero__meta strong {
+      font-size: clamp(11px, 1.5vw, 13px);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero__cta {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-top: clamp(1.5rem, 4vw, 2.25rem);
+    }
+
+    .hero__cta-note {
+      max-width: 30ch;
+      font-size: 10px;
+      line-height: 1.5;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ==========================================================
+       5. TOMBOL
+       ========================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 50px;
+      padding: 0.85rem 1.1rem;
+      background: var(--ink);
+      color: var(--paper);
+      border: var(--border);
+      border-radius: 0;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color var(--t-fast), color var(--t-fast), transform var(--t-fast);
+    }
+
+    .btn:hover {
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    .btn:active { transform: translate(2px, 2px); }
+
+    .btn:disabled {
+      background: #35332E;
+      border-color: #35332E;
+      color: var(--paper);
+      cursor: wait;
+      transform: none;
+    }
+
+    .btn--cta {
+      min-width: 250px;
+      min-height: 56px;
+      font-size: 13px;
+      border-width: 4px;
+    }
+
+    .btn--ghost {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .btn--ghost:hover {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .btn--light {
+      background: var(--paper);
+      color: var(--ink);
+      border-color: var(--paper);
+    }
+
+    .btn--light:hover {
+      background: var(--red);
+      color: var(--ink);
+      border-color: var(--red);
+    }
+
+    .btn__arrow { font-size: 15px; }
+
+    #waConfirm {
+      background: #25D366;
+      color: var(--ink);
+      border: 4px solid var(--ink);
+      animation: pulseWa 3s ease-in-out infinite;
+    }
+
+    #waConfirm:hover {
+      background: #25D366;
+      color: var(--ink);
+    }
+
+    @keyframes pulseWa {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+      100% { transform: scale(1); }
+    }
+
+    .stabilo {
+      background: var(--ink);
+      color: #FFFFFF !important;
+      padding: 0.1em 0.25em;
+      display: inline-block;
+      box-decoration-break: clone;
+      border-radius: 1px;
+    }
+
+    /* ==========================================================
+       6. INFO SINGKAT
+       ========================================================== */
+    .facts {
+      padding-top: clamp(2rem, 5vw, 3.5rem);
+    }
+
+    .facts__grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border: var(--border-thick);
+      background: var(--paper);
+      transform: rotate(-0.35deg);
+    }
+
+    .fact {
+      padding: clamp(1rem, 2.6vw, 1.75rem);
+      border-right: var(--border);
+      min-width: 0;
+    }
+
+    .fact:last-child { border-right: 0; }
+
+    .fact__label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+    }
+
+    .fact__label::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--ink);
+      flex: none;
+    }
+
+    .fact__value {
+      display: block;
+      margin-top: 0.45rem;
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.6vw, 3.5rem);
+      line-height: 0.92;
+      letter-spacing: -0.01em;
+    }
+
+    .fact--price .fact__value { color: var(--red); }
+
+    .fact__sub {
+      display: block;
+      margin-top: 0.45rem;
+      font-size: 9px;
+      line-height: 1.45;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ==========================================================
+       7. SECTION HEADING
+       ========================================================== */
+    .section { padding-block: var(--section); }
+    section[id] { scroll-margin-top: 1.25rem; }
+
+    .section-head { margin-bottom: clamp(1.5rem, 4vw, 2.75rem); }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.7rem;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .kicker::before {
+      content: "";
+      width: 24px;
+      height: 5px;
+      background: var(--red);
+    }
+
+    .h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 7.5vw, 5.4rem);
+      font-weight: 400;
+      line-height: 0.88;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+
+    .h2 .dot { color: var(--red); }
+
+    .section-lead {
+      max-width: 62ch;
+      margin-top: 1rem;
+      font-size: 12px;
+      line-height: 1.7;
+      letter-spacing: 0.02em;
+      color: #FFFFFF;
+    }
+
+    /* ==========================================================
+       8. PANEL FORM
+       ========================================================== */
+    .panel {
+      border: var(--border-thick);
+      background: var(--paper);
+    }
+
+    .panel__bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.6rem 0.85rem;
+      background: var(--ink);
+      color: var(--paper);
+      border-bottom: var(--border-thick);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .live {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: var(--paper);
+      white-space: nowrap;
+    }
+
+    .live::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      background: var(--red);
+    }
+
+    .form-body { padding: clamp(1rem, 3vw, 2.25rem); }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(250px, 0.55fr);
+      gap: clamp(1.5rem, 4vw, 3rem);
+      align-items: start;
+    }
+
+    .form-main { min-width: 0; }
+
+    /* ==========================================================
+       9. FIELDSET & FIELD
+       ========================================================== */
+    .fieldset {
+      min-width: 0;
+      margin: 0 0 2.25rem;
+      padding: 0;
+      border: 0;
+    }
+
+    .fieldset:last-of-type { margin-bottom: 0; }
+
+    .fieldset__legend {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      width: 100%;
+      margin: 0 0 1.1rem;
+      padding: 0 0 0.6rem;
+      border-bottom: 2px solid var(--ink);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+    .fieldset__num {
+      display: inline-grid;
+      place-items: center;
+      flex: none;
+      min-width: 25px;
+      height: 22px;
+      padding: 0 0.35rem;
+      background: var(--ink);
+      color: var(--paper);
+      font-size: 9px;
+      letter-spacing: 0.06em;
+    }
+
+    .field {
+      min-width: 0;
+      margin-bottom: 1.1rem;
+    }
+
+    .field:last-child { margin-bottom: 0; }
+
+    .field > label,
+    .field__label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+    .label-note {
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      text-transform: none;
+    }
+
+    .req { color: var(--red-deep); }
+
+    .field input[type="text"],
+    .field input[type="tel"],
+    .field input[type="number"],
+    .field select,
+    .field textarea {
+      width: 100%;
+      min-height: 48px;
+      padding: 0.75rem 0.85rem;
+      background: transparent;
+      color: var(--ink);
+      border: 2px solid var(--ink);
+      border-radius: 0;
+      font-family: var(--font-mono);
+      font-size: 16px;
+      line-height: 1.45;
+      appearance: none;
+      transition: border-color var(--t-fast), background-color var(--t-fast);
+    }
+
+    .field textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .field select {
+      padding-right: 2.3rem;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10' viewBox='0 0 16 10'%3E%3Cpath d='M1 1l7 7 7-7' fill='none' stroke='%230D0D0D' stroke-width='2.5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.85rem center;
+      background-size: 14px 9px;
+      text-transform: uppercase;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #5E5A52;
+      opacity: 1;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .field input:hover,
+    .field select:hover,
+    .field textarea:hover { background: rgba(13, 13, 13, 0.025); }
+
+    .field input:focus-visible,
+    .field select:focus-visible,
+    .field textarea:focus-visible {
+      outline: 2px solid var(--red);
+      outline-offset: 2px;
+      border-color: var(--ink);
+    }
+
+    .field input:disabled {
+      background: var(--paper-2);
+      border-style: dashed;
+      color: var(--muted);
+      cursor: not-allowed;
+      opacity: 1;
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(0, 0.55fr);
+      gap: 1rem;
+    }
+
+    .hint {
+      margin-top: 0.35rem;
+      font-size: 9px;
+      line-height: 1.55;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+    }
+
+    .field-error {
+      margin-top: 0.35rem;
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 1.45;
+      letter-spacing: 0.02em;
+      color: var(--red-deep);
+    }
+
+    .field-error:empty { display: none; }
+
+    .field.has-error input,
+    .field.has-error select,
+    .field.has-error textarea {
+      border-color: var(--red-deep);
+      border-width: 3px;
+      background: rgba(224, 58, 31, 0.04);
+    }
+
+    .field.has-error > label { color: var(--red-deep); }
+
+    .counter {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 0.35rem;
+    }
+
+    .counter .hint { margin: 0; }
+
+    .counter__num {
+      flex: none;
+      font-size: 9px;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+    }
+
+    /* ==========================================================
+       10. PEMBAYARAN
+       ========================================================== */
+    .pay-options {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .pay-option {
+      position: relative;
+      display: block;
+      cursor: pointer;
+    }
+
+    .pay-option input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: 0;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .pay-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.15rem;
+      min-height: 70px;
+      padding: 0.7rem 0.85rem;
+      border: 2px solid var(--ink);
+      background: transparent;
+      transition: background-color var(--t-fast), color var(--t-fast);
+    }
+
+    .pay-box strong {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .pay-box small {
+      font-size: 9px;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+    }
+
+    .pay-option:hover .pay-box { background: var(--paper-2); }
+
+    .pay-option input:checked + .pay-box {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .pay-option input:checked + .pay-box small { color: #CFCBC2; }
+
+    .pay-option input:focus-visible + .pay-box {
+      outline: 2px solid var(--red);
+      outline-offset: 2px;
+    }
+
+    .field.has-error .pay-box { border-color: var(--red-deep); }
+
+    .bank-note {
+      display: grid;
+      gap: 0.1rem;
+      margin-top: 1rem;
+      padding: 0.75rem 0.85rem;
+      background: #FFE24D;
+      color: var(--ink);
+      border: 3px solid var(--ink);
+      cursor: pointer;
+    }
+
+    .bank-note span {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #4A463F;
+    }
+
+    .bank-note strong {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .bank-note em {
+      font-style: normal;
+      font-size: 10px;
+      color: #4A463F;
+    }
+
+    .bank-copy {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      min-height: 34px;
+      padding: 0 0.7rem;
+      background: transparent;
+      color: var(--ink);
+      border: 2px solid var(--ink);
+      font: inherit;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .bank-copy:hover {
+      background: var(--ink);
+      color: #FFE24D;
+    }
+
+    /* ==========================================================
+       11. UPLOAD BUKTI
+       ========================================================== */
+    .file-picker {
+      position: relative;
+      margin-top: 0.25rem;
+    }
+
+    .file-native {
+      position: absolute !important;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .file-picker__drop {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      width: 100%;
+      padding: 0.7rem 0.8rem;
+      background: transparent;
+      color: var(--ink);
+      border: 2px dashed var(--ink);
+      cursor: pointer;
+      transition: background-color var(--t-fast), border-color var(--t-fast);
+    }
+
+    .file-picker__drop:hover { background: var(--paper-2); }
+
+    .file-native:focus-visible + .file-picker__drop {
+      outline: 2px solid var(--red);
+      outline-offset: 3px;
+    }
+
+    .file-picker__mark {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      flex: none;
+      background: var(--ink);
+      color: var(--paper);
+      border: 0;
+      font-family: var(--font-display);
+      font-size: 24px;
+      line-height: 1;
+      transition: background-color var(--t-fast), color var(--t-fast);
+    }
+
+    .file-picker__drop:hover .file-picker__mark,
+    .file-picker__drop.is-filled .file-picker__mark {
+      background: var(--red);
+      color: var(--ink);
+    }
+
+    .file-picker__copy {
+      display: grid;
+      gap: 0.1rem;
+      min-width: 0;
+    }
+
+    .file-picker__copy strong {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .file-picker__copy span {
+      font-size: 8px;
+      line-height: 1.5;
+      letter-spacing: 0.06em;
+      color: var(--ink);
+      text-transform: uppercase;
+    }
+
+    .field.has-error .file-picker__drop {
+      border-color: var(--red-deep);
+      background: rgba(224, 58, 31, 0.04);
+    }
+
+    .file-preview {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-top: 0.6rem;
+      padding: 0.5rem;
+      border: 2px solid var(--ink);
+      background: var(--paper-2);
+      min-width: 0;
+    }
+
+    .file-thumb {
+      width: 58px;
+      height: 58px;
+      flex: none;
+      object-fit: cover;
+      border: 2px solid var(--ink);
+      background: var(--paper);
+    }
+
+    .file-badge {
+      display: grid;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      flex: none;
+      border: 2px solid var(--ink);
+      background: var(--ink);
+      color: var(--paper);
+      font-family: var(--font-display);
+      font-size: 17px;
+      letter-spacing: 0.05em;
+    }
+
+    .file-meta {
+      display: grid;
+      gap: 0.15rem;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .file-meta strong {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .file-meta span {
+      font-size: 9px;
+      color: var(--ink);
+      letter-spacing: 0.03em;
+    }
+
+    .file-remove {
+      flex: none;
+      padding: 0.4rem;
+      background: transparent;
+      color: var(--red-deep);
+      border: 0;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .hp {
+      position: absolute !important;
+      left: -9999px !important;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    /* ==========================================================
+       12. RINGKASAN HARGA
+       ========================================================== */
+    .summary {
+      position: sticky;
+      top: 1rem;
+      min-width: 0;
+      border: var(--border);
+      background: var(--paper);
+    }
+
+    .summary__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.55rem 0.8rem;
+      background: var(--ink);
+      color: var(--paper);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .summary__head span:last-child { color: #CFCBC2; }
+
+    .summary__body { padding: 0.85rem 0.85rem 0; }
+
+    .summary__row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.45rem 0;
+      border-bottom: 1px dashed var(--line-soft);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .summary__row b {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ink);
+      text-align: right;
+      letter-spacing: 0.02em;
+    }
+
+    .summary__row b.is-due { color: var(--red-deep); }
+
+    .summary__total {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin: 0.85rem -0.85rem 0;
+      padding: 0.85rem;
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .summary__total span {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+      color: #CFCBC2;
+    }
+
+    .summary__total strong {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.5vw, 2.85rem);
+      font-weight: 400;
+      line-height: 0.9;
+      letter-spacing: -0.01em;
+      color: var(--red);
+      text-align: right;
+      word-break: break-word;
+    }
+
+    .summary__note {
+      padding: 0.75rem 0.85rem;
+      border-top: 2px solid var(--ink);
+      background: var(--paper-2);
+      font-size: 9px;
+      line-height: 1.55;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+    }
+
+    .summary__action {
+      padding: 0.85rem;
+      border-top: 2px solid var(--ink);
+    }
+
+    .btn--submit {
+      width: 100%;
+      min-height: 54px;
+      font-size: 12px;
+    }
+
+    .summary__fine {
+      margin-top: 0.6rem;
+      font-size: 8px;
+      line-height: 1.55;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      text-transform: uppercase;
+    }
+
+    .form-alert {
+      margin-bottom: 0.75rem;
+      padding: 0.7rem 0.75rem;
+      border: var(--border);
+      background: var(--red);
+      color: var(--ink);
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: 0.02em;
+    }
+
+    .form-alert p { margin: 0; }
+
+    .alert__retry {
+      margin-top: 0.6rem;
+      padding: 0.45rem 0.65rem;
+      background: var(--ink);
+      color: var(--paper);
+      border: 0;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .alert__retry:hover { background: var(--paper); color: var(--ink); }
+
+    .panel__foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 0.65rem 0.85rem;
+      border-top: 2px solid var(--ink);
+      background: var(--paper-2);
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    /* ==========================================================
+       13. CARA ORDER
+       ========================================================== */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: var(--border-thick);
+      border-bottom: var(--border-thick);
+    }
+
+    .step {
+      min-width: 0;
+      padding: clamp(1.1rem, 3vw, 1.8rem);
+      border-right: 2px solid var(--ink);
+    }
+
+    .step:last-child { border-right: 0; }
+
+    .step__num {
+      display: block;
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 8vw, 5.5rem);
+      line-height: 0.8;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--ink);
+      opacity: 0.5;
+    }
+
+    .step h3 {
+      margin-top: 0.75rem;
+      font-family: var(--font-display);
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+    }
+
+    .step p {
+      margin-top: 0.55rem;
+      font-size: 10px;
+      line-height: 1.65;
+      letter-spacing: 0.03em;
+      color: var(--ink);
+    }
+
+    .step p strong { color: var(--ink); }
+
+    /* ==========================================================
+       14. TABEL UKURAN
+       ========================================================== */
+    .size-table-wrap {
+      border: var(--border-thick);
+      background: var(--paper);
+      overflow-x: auto;
+    }
+
+    .size-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 12px;
+    }
+
+    .size-table th {
+      padding: 0.7rem 0.55rem;
+      background: var(--ink);
+      color: var(--paper);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-align: left;
+      text-transform: uppercase;
+      border-right: 1px solid rgba(242, 239, 232, 0.3);
+    }
+
+    .size-table th:last-child { border-right: 0; }
+
+    .size-table td {
+      padding: 0.7rem 0.55rem;
+      border-top: 2px solid var(--ink);
+      border-right: 2px solid var(--ink);
+      font-size: 12px;
+      letter-spacing: 0.03em;
+    }
+
+    .size-table td:last-child { border-right: 0; }
+
+    .size-table tbody tr:nth-child(even) { background: var(--paper-2); }
+
+    .size-table tbody tr:first-child td { border-top: 0; }
+
+    .size-table .size-name {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      letter-spacing: 0.02em;
+    }
+
+    .size-note {
+      margin-top: 0.75rem;
+      font-size: 9px;
+      line-height: 1.6;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    /* ==========================================================
+       14b. MOCKUP
+       ========================================================== */
+    .mockup {
+      padding: clamp(2rem, 5vw, 4rem) 0;
+      overflow: hidden;
+    }
+
+    .mockup__img {
+      display: block;
+      max-width: 100%;
+      width: clamp(420px, 65vw, 720px);
+      height: auto;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================
+       15. FOOTER
+       ========================================================== */
+    .footer {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(2.5rem, 6vw, 4rem) 0 1.5rem;
+      background: var(--ink);
+      color: var(--paper);
+      border-top: var(--border-thick);
+    }
+
+    .footer__giant {
+      margin-left: -0.04em;
+      font-family: var(--font-display);
+      font-size: clamp(5rem, 21vw, 15rem);
+      line-height: 0.72;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      user-select: none;
+      pointer-events: none;
+      white-space: nowrap;
+      position: relative;
+      margin-left: -0.03em;
+    }
+
+    .footer__giant::before {
+      content: attr(data-text);
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      z-index: -1;
+      opacity: 0.24;
+      pointer-events: none;
+      mix-blend-mode: multiply;
+      color: var(--ink);
+    }
+
+    .footer__grid {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.5rem 3rem;
+      flex-wrap: wrap;
+      margin-top: clamp(1.5rem, 4vw, 2.5rem);
+      padding-top: 1.25rem;
+      border-top: 2px solid rgba(242, 239, 232, 0.35);
+    }
+
+    .footer__brand {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      line-height: 1.7;
+    }
+
+    .footer__brand span {
+      display: block;
+      font-size: 9px;
+      font-weight: 400;
+      color: #FFFFFF;
+      letter-spacing: 0.08em;
+    }
+
+    .footer__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.25rem;
+    }
+
+    .footer__links a {
+      padding: 0.3rem 0;
+      color: var(--paper);
+      border-bottom: 2px solid var(--red);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background-color var(--t-fast), color var(--t-fast);
+    }
+
+    .footer__links a:hover {
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    .footer__bottom {
+      margin-top: 1.25rem;
+      font-size: 8px;
+      line-height: 1.6;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+    }
+
+    /* ==========================================================
+       16. HALAMAN SUKSES
+       ========================================================== */
+    .success {
+      border: var(--border-thick);
+      background: var(--paper);
+    }
+
+    #sukses:focus { outline: none; }
+
+    #sukses:focus-visible .success {
+      outline: 3px solid var(--red);
+      outline-offset: 4px;
+    }
+
+    .success__bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 0.65rem 0.85rem;
+      background: var(--red);
+      color: var(--ink);
+      border-bottom: var(--border-thick);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .success__body { padding: clamp(1.25rem, 4vw, 2.75rem); }
+
+    .success__title {
+      margin: 0.35rem 0 0.75rem;
+      font-family: var(--font-display);
+      font-size: clamp(3.4rem, 10vw, 7rem);
+      font-weight: 400;
+      line-height: 0.84;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+
+    .success__title .dot { color: var(--red); }
+
+    .success__lead {
+      max-width: 58ch;
+      font-size: 11px;
+      line-height: 1.7;
+      letter-spacing: 0.02em;
+      color: var(--muted);
+    }
+
+    .codebox {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin: 1.1rem 0 1.4rem;
+      padding: 0.7rem;
+      border: var(--border-thick);
+      background: var(--paper-2);
+    }
+
+    .codebox strong {
+      flex: 1;
+      min-width: 180px;
+      font-size: clamp(1.1rem, 4vw, 1.65rem);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      line-height: 1.2;
+      word-break: break-all;
+    }
+
+    .codebox .btn {
+      min-height: 42px;
+      padding: 0.55rem 0.7rem;
+      font-size: 9px;
+    }
+
+    .receipt {
+      margin: 1.2rem 0;
+      border-top: 2px solid var(--ink);
+    }
+
+    .receipt__row {
+      display: grid;
+      grid-template-columns: minmax(8rem, 0.45fr) minmax(0, 1fr);
+      gap: 1rem;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .receipt dt {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .receipt dd {
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.5;
+      text-align: right;
+      overflow-wrap: anywhere;
+    }
+
+    .transfer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 0.9rem 1rem;
+      background: #FFE24D;
+      color: var(--ink);
+      border: 3px solid var(--ink);
+      margin-top: 1.2rem;
+      cursor: pointer;
+    }
+
+    .transfer__label {
+      display: block;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+      color: #4A463F;
+    }
+
+    .transfer strong {
+      display: block;
+      margin-top: 0.15rem;
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 4vw, 2.3rem);
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: 0.02em;
+    }
+
+    .transfer em {
+      display: block;
+      margin-top: 0.2rem;
+      font-style: normal;
+      font-size: 10px;
+      letter-spacing: 0.05em;
+      color: #4A463F;
+    }
+
+    .transfer .bank-copy { flex: none; }
+
+    .success__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.2rem;
+    }
+
+    .success__actions .btn {
+      flex: 1 1 240px;
+      min-height: 56px;
+    }
+
+    .proof-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-top: 1rem;
+      padding: 0.4rem 0.6rem;
+      background: var(--ink);
+      color: var(--paper);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .proof-status::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      background: var(--red);
+    }
+
+    .late-proof {
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 3px dashed var(--ink);
+    }
+
+    .late-proof h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+    }
+
+    .late-proof p {
+      max-width: 58ch;
+      margin-top: 0.35rem;
+      font-size: 10px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .late-proof .file-picker { margin-top: 0.75rem; }
+
+    .late-proof .btn { margin-top: 0.75rem; }
+
+    .late-msg {
+      margin-top: 0.6rem;
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: 0.02em;
+    }
+
+    .late-msg.is-error { color: var(--red-deep); }
+    .late-msg.is-ok { color: var(--ink); }
+
+    /* ==========================================================
+       17. RESPONSIVE
+       ========================================================== */
+    @media (max-width: 980px) {
+      .form-grid { grid-template-columns: minmax(0, 1fr); }
+      .summary { position: static; }
+      .form-alert { margin-top: 0.2rem; }
+    }
+
+    @media (max-width: 720px) {
+      .facts__grid {
+        grid-template-columns: minmax(0, 1fr);
+        transform: rotate(-0.25deg);
+      }
+
+      .fact {
+        border-right: 0;
+        border-bottom: var(--border);
+      }
+
+      .fact:last-child { border-bottom: 0; }
+
+      .steps { grid-template-columns: minmax(0, 1fr); }
+
+      .step {
+        border-right: 0;
+        border-bottom: 2px solid var(--ink);
+      }
+
+      .step:last-child { border-bottom: 0; }
+
+      .hero__meta { grid-template-columns: minmax(0, 1fr); }
+      .hero__cta-note { max-width: 100%; }
+    }
+
+    @media (max-width: 560px) {
+      .hero__eyebrow {
+        justify-content: flex-start;
+        gap: 0.35rem 1rem;
+        font-size: 9px;
+      }
+
+      .hero__cta { align-items: stretch; }
+      .btn--cta { width: 100%; }
+
+      .field-row { grid-template-columns: minmax(0, 1fr); }
+
+      .pay-box { min-height: 64px; padding: 0.6rem 0.65rem; }
+      .pay-box strong { font-size: 12px; }
+
+      .codebox .btn { width: 100%; }
+
+      .receipt__row {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.15rem;
+      }
+
+      .receipt dd { text-align: left; }
+
+      .transfer .btn { width: 100%; }
+      .success__actions .btn { flex-basis: 100%; }
+
+      .file-preview { align-items: flex-start; }
+      .file-remove { margin-left: auto; }
+    }
+
+    @media (max-width: 380px) {
+      .marquee__group { font-size: 9px; }
+      .panel__bar { font-size: 8px; }
+      .summary__total strong { font-size: 1.8rem; }
+      .size-table th,
+      .size-table td { padding: 0.55rem 0.35rem; font-size: 10px; }
+      .size-table .size-name { font-size: 1.05rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .marquee__track { animation: none; }
+    }
+
+  </style>
+</head>
+<body>
+  <a class="skip" href="#form">Langsung ke form pre-order</a>
+
+  <!-- ==========================================================
+       TOPBAR — marquee CSS, tanpa JS
+       ========================================================== -->
+  <div class="topbar">
+    <p class="sr-only">Pre-order open — Demo 2026 merch — GHALAT — South Stomp Hardcore</p>
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <div class="marquee__group">
+          PRE-ORDER OPEN — DEMO 2026 MERCH — GHALAT — SOUTH STOMP HARDCORE — PRE-ORDER OPEN — DEMO 2026 MERCH — GHALAT — SOUTH STOMP HARDCORE — PRE-ORDER OPEN — DEMO 2026 MERCH — GHALAT — SOUTH STOMP HARDCORE — PRE-ORDER OPEN — DEMO 2026 MERCH — GHALAT — SOUTH STOMP HARDCORE —
+        </div>
+        <div class="marquee__group">
+          PRE-ORDER OPEN — DEMO 2026 MERCH — GHALAT — SOUTH STOMP HARDCORE — PRE-ORDER OPEN — DEMO 2026 MERCH — GHALAT — SOUTH STOMP HARDCORE — PRE-ORDER OPEN — DEMO 2026 MERCH — GHALAT — SOUTH STOMP HARDCORE — PRE-ORDER OPEN — DEMO 2026 MERCH — GHALAT — SOUTH STOMP HARDCORE —
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================
+       HERO
+       ========================================================== -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero__eyebrow">
+        <span class="stabilo">PRE-ORDER OPEN / 2026</span>
+        <span class="stabilo">PRINGSEWU — LAMPUNG</span>
+      </div>
+
+      <h1 class="logo" aria-label="GHALAT">
+        <img id="bandLogo" src="assets/logo.png" alt="" width="640" height="220" hidden>
+        <span class="logo__text stabilo" data-text="GHALAT" aria-hidden="true">GHALAT</span>
+      </h1>
+
+      <p class="hero__sub stabilo">SOUTH STOMP HARDCORE</p>
+
+      <div class="hero__meta">
+        <p>
+          <strong class="stabilo">STATE OF ROT / MALFUNCTION</strong>
+        </p>
+        <p>
+          <span class="stabilo">Est.</span>
+          <strong class="stabilo">PRINGSEWU</strong>
+        </p>
+      </div>
+
+      <div class="hero__cta">
+        <a class="btn btn--cta" href="#form">
+          <span>ORDER SEKARANG</span>
+          <span class="btn__arrow" aria-hidden="true">↓</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="konten">
+    <!-- ==========================================================
+         MOCKUP
+         ========================================================== -->
+    <section class="mockup" aria-label="Mockup kaos">
+      <div class="wrap">
+        <img src="assets/mockup.png" alt="Mockup kaos GHALAT" class="mockup__img">
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         FORM PRE-ORDER
+         ========================================================== -->
+    <section class="section" id="form" aria-labelledby="formTitle">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker stabilo">FORMULIR / 01</p>
+          <h2 class="h2 stabilo" id="formTitle">ISI DATA LU<span class="dot">.</span></h2>
+          <p class="section-lead stabilo">Isi data dengan benar, pilih ukuran, lalu transfer DP atau lunas. Bukti transfer dikirim lewat WhatsApp, nggak ada upload di web. Data masuk langsung ke pencatatan band, bukan ke pihak lain.</p>
+        </div>
+
+        <div class="panel" id="formPanel">
+          <div class="panel__bar">
+            <span>PRE-ORDER / KAOS DEMO 2026</span>
+            <span class="live">SLOT BUKA</span>
+          </div>
+
+          <div class="form-body">
+            <form id="orderForm" novalidate>
+              <div class="form-grid">
+                <div class="form-main">
+                  <!-- 01. DATA PENGIRIM -->
+                  <fieldset class="fieldset">
+                    <legend class="fieldset__legend"><span class="fieldset__num">01</span> DATA PENGIRIM</legend>
+
+                    <div class="field">
+                      <label for="nama">Nama Lengkap <span class="req" aria-hidden="true">*</span></label>
+                      <input type="text" id="nama" name="nama" minlength="3" maxlength="100" autocomplete="name" placeholder="NAMA SESUAI KTP" required aria-describedby="err-nama">
+                      <p class="field-error" id="err-nama" aria-live="polite"></p>
+                    </div>
+
+                    <div class="field">
+                      <label for="wa">No. WhatsApp <span class="req" aria-hidden="true">*</span></label>
+                      <input type="tel" id="wa" name="wa" inputmode="numeric" autocomplete="tel" maxlength="20" placeholder="08xxxxxxxxxx" required aria-describedby="hint-wa err-wa">
+                      <p class="hint" id="hint-wa">OTOMATIS DIRAPIKAN JADI FORMAT 628xxxxxxxxx.</p>
+                      <p class="field-error" id="err-wa" aria-live="polite"></p>
+                    </div>
+
+                    <div class="field">
+                      <label for="alamat">Alamat Lengkap <span class="req" aria-hidden="true">*</span></label>
+                      <textarea id="alamat" name="alamat" rows="4" minlength="15" maxlength="500" autocomplete="street-address" placeholder="JALAN, NO. RUMAH, RT/RW, KECAMATAN, KOTA, KODEPOS + PATOKAN" required aria-describedby="hint-alamat err-alamat"></textarea>
+                      <p class="hint" id="hint-alamat">Sertakan patokan atau kecamatan agar paket tidak nyasar.</p>
+                      <p class="field-error" id="err-alamat" aria-live="polite"></p>
+                    </div>
+                  </fieldset>
+
+                  <!-- 02. PILIHAN KAOS -->
+                  <fieldset class="fieldset">
+                    <legend class="fieldset__legend"><span class="fieldset__num">02</span> PILIHAN KAOS</legend>
+
+                    <div class="field-row">
+                      <div class="field">
+                        <label for="size">Ukuran <span class="req" aria-hidden="true">*</span></label>
+                        <select id="size" name="size" required aria-describedby="err-size">
+                          <option value="" disabled selected>PILIH UKURAN</option>
+                          <option value="S">S — Rp160.000</option>
+                          <option value="M">M — Rp160.000</option>
+                          <option value="L">L — Rp160.000</option>
+                          <option value="XL">XL — Rp165.000</option>
+                          <option value="XXL">XXL — Rp170.000</option>
+                          <option value="XXXL">XXXL — Rp175.000</option>
+                        </select>
+                        <p class="field-error" id="err-size" aria-live="polite"></p>
+                      </div>
+
+                      <div class="field">
+                        <label for="jumlah">Jumlah <span class="req" aria-hidden="true">*</span></label>
+                        <input type="number" id="jumlah" name="jumlah" min="1" step="1" value="1" inputmode="numeric" required aria-describedby="err-jumlah">
+                        <p class="field-error" id="err-jumlah" aria-live="polite"></p>
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label for="catatan">Catatan <span class="label-note">(opsional)</span></label>
+                      <textarea id="catatan" name="catatan" rows="3" maxlength="300" placeholder="Contoh: titip di base, dll." aria-describedby="hint-catatan err-catatan"></textarea>
+                      <div class="counter">
+                        <p class="hint" id="hint-catatan">Tidak perlu menulis data sensitif. Maks. 300 karakter.</p>
+                        <span class="counter__num" id="catatanCount" aria-hidden="true">0/300</span>
+                      </div>
+                      <p class="field-error" id="err-catatan" aria-live="polite"></p>
+                    </div>
+                  </fieldset>
+
+                  <!-- 03. PEMBAYARAN -->
+                  <fieldset class="fieldset">
+                    <legend class="fieldset__legend"><span class="fieldset__num">03</span> PEMBAYARAN</legend>
+
+                    <div class="field">
+                      <span class="field__label" id="pembayaranLabel">Metode <span class="req" aria-hidden="true">*</span></span>
+                      <div class="pay-options" role="radiogroup" aria-labelledby="pembayaranLabel">
+                        <label class="pay-option" for="bayar-dp">
+                          <input type="radio" id="bayar-dp" name="pembayaran" value="DP" checked>
+                          <span class="pay-box">
+                            <strong>DP</strong>
+                            <small>MIN. Rp100.000</small>
+                          </span>
+                        </label>
+                        <label class="pay-option" for="bayar-lunas">
+                          <input type="radio" id="bayar-lunas" name="pembayaran" value="Lunas">
+                          <span class="pay-box">
+                            <strong>LUNAS</strong>
+                            <small>BAYAR FULL</small>
+                          </span>
+                        </label>
+                      </div>
+                      <p class="field-error" id="err-pembayaran" aria-live="polite"></p>
+                    </div>
+
+                    <div class="field" id="nominalField">
+                      <label for="nominalBayar" id="nominalLabel">Nominal Transfer <span class="req" aria-hidden="true">*</span></label>
+                      <input type="number" id="nominalBayar" name="nominalBayar" min="100000" step="1" value="100000" inputmode="numeric" required aria-describedby="hint-nominal err-nominalBayar">
+                      <p class="hint" id="hint-nominal">Minimal Rp100.000. Sisanya dibayar sebelum barang dikirim.</p>
+                      <p class="field-error" id="err-nominalBayar" aria-live="polite"></p>
+                    </div>
+
+                    <div class="bank-note" id="bankNoteForm">
+                      <span>Transfer ke</span>
+                      <strong><span data-config="bank">BCA 8445698501</span></strong>
+                      <em><span data-config="bank-nama">a/n AMRULLAH EMMIR</span></em>
+                      <button type="button" class="bank-copy">SALIN</button>
+                    </div>
+                  </fieldset>
+
+                  <!-- Honeypot anti-bot -->
+                  <div class="hp" aria-hidden="true">
+                    <label for="website">Website</label>
+                    <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                  </div>
+
+                  <div class="sr-only" id="errorSummary" aria-live="polite"></div>
+                </div>
+
+                <!-- RINGKASAN HARGA -->
+                <aside class="summary" aria-labelledby="summaryTitle">
+                  <div class="summary__head" id="summaryTitle">
+                    <span>RINGKASAN</span>
+                    <span>LIVE</span>
+                  </div>
+
+                  <div class="summary__body">
+                    <div class="summary__row">
+                      <span>Harga satuan</span>
+                      <b id="sumUnit">PILIH UKURAN</b>
+                    </div>
+                    <div class="summary__row">
+                      <span>Jumlah</span>
+                      <b id="sumQty">1 PCS</b>
+                    </div>
+                    <div class="summary__total" aria-live="polite">
+                      <span>Total</span>
+                      <strong id="sumTotal">Rp0</strong>
+                    </div>
+                  </div>
+
+                  <div class="summary__body">
+                    <div class="summary__row">
+                      <span>Dibayar</span>
+                      <b id="sumBayar">Rp0</b>
+                    </div>
+                    <div class="summary__row">
+                      <span>Sisa</span>
+                      <b id="sumSisa" aria-live="polite">Rp0</b>
+                    </div>
+                  </div>
+
+                  <div class="summary__note" id="summaryNote">
+                    Pilih ukuran dan metode bayar buat lihat total.
+                  </div>
+
+                  <div class="summary__action">
+                    <div class="form-alert" id="formAlert" role="alert" aria-live="polite" hidden></div>
+                    <button type="submit" class="btn btn--submit" id="submitBtn">
+                      <span class="btn__label">KIRIM ORDER</span>
+                      <span class="btn__arrow" aria-hidden="true">→</span>
+                    </button>
+                    <p class="summary__fine">Dengan mengirim, data lu dipakai buat proses order. Kalau gagal, data tetap ada di form.</p>
+                  </div>
+                </aside>
+
+              </div>
+            </form>
+          </div>
+
+          <div class="panel__foot">
+            <span>DATA CUMA DIPAKAI BUAT ORDER</span>
+            <span>GHALAT / 2026</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         HALAMAN SUKSES (tanpa reload)
+         ========================================================== -->
+    <section class="section" id="sukses" aria-labelledby="suksesTitle" tabindex="-1" hidden>
+      <div class="wrap">
+        <div class="success">
+          <div class="success__bar">
+            <span>ORDER DITERIMA</span>
+            <span>STATUS: MENUNGGU KONFIRMASI WA</span>
+          </div>
+          <div class="success__body">
+            <p class="kicker">KONFIRMASI / 02</p>
+            <h2 class="success__title" id="suksesTitle">ORDER MASUK<span class="dot">.</span></h2>
+            <p class="success__lead">Simpan kode order ini. Screenshot halaman ini. Kode dipakai buat konfirmasi dan cek order.</p>
+
+            <div class="codebox">
+              <strong id="suksesKode">GHLT-000000-0000</strong>
+              <button type="button" class="btn btn--ghost" id="copyKode">SALIN KODE</button>
+            </div>
+
+            <dl class="receipt">
+              <div class="receipt__row">
+                <dt>Nama</dt>
+                <dd id="suksesNama">-</dd>
+              </div>
+              <div class="receipt__row">
+                <dt>Size / Jumlah</dt>
+                <dd id="suksesItem">-</dd>
+              </div>
+              <div class="receipt__row">
+                <dt>Total</dt>
+                <dd id="suksesTotal">Rp0</dd>
+              </div>
+              <div class="receipt__row">
+                <dt>Dibayar</dt>
+                <dd id="suksesBayar">Rp0</dd>
+              </div>
+              <div class="receipt__row" id="suksesSisaRow">
+                <dt>Sisa</dt>
+                <dd id="suksesSisa">Rp0</dd>
+              </div>
+            </dl>
+
+            <div class="transfer">
+              <div>
+                <span class="transfer__label">Transfer ke</span>
+                <strong><span data-config="bank">BCA 8445698501</span></strong>
+                <em><span data-config="bank-nama">a/n AMRULLAH EMMIR</span></em>
+              </div>
+              <button type="button" class="bank-copy">SALIN</button>
+            </div>
+
+            <div class="success__actions">
+              <a class="btn" id="waConfirm" href="https://wa.me/6281996385058" target="_blank" rel="noopener noreferrer">
+                <span>KONFIRMASI VIA WHATSAPP</span>
+                <span class="btn__arrow" aria-hidden="true">↗</span>
+              </a>
+            </div>
+
+            <p class="warn-wa">Penting: setelah transfer, wajib konfirmasi ke WhatsApp. Kalau nggak, order dianggap hangus.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         TABEL UKURAN
+         ========================================================== -->
+    <section class="section" id="ukuran" aria-labelledby="ukuranTitle">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker stabilo">SIZE CHART / 04</p>
+          <h2 class="h2 stabilo" id="ukuranTitle">TABEL UKURAN<span class="dot">.</span></h2>
+          <p class="section-lead stabilo">Ukur kaos lama yang paling pas, jangan ngarang. Toleransi produksi ±1–2 cm.</p>
+        </div>
+
+        <div class="size-table-wrap">
+          <table class="size-table">
+            <caption class="sr-only">Tabel ukuran kaos GHALAT dalam sentimeter</caption>
+            <thead>
+              <tr>
+                <th scope="col" style="width: 22%;">Size</th>
+                <th scope="col" style="width: 39%;">Lebar Dada</th>
+                <th scope="col" style="width: 39%;">Panjang Badan</th>
+              </tr>
+            </thead>
+            <!-- Fallback statis; JS merender ulang dari CONFIG.TABEL_UKURAN -->
+            <tbody id="sizeTableBody">
+              <tr><td class="size-name">S</td><td>46</td><td>68-70</td></tr>
+              <tr><td class="size-name">M</td><td>50</td><td>72-74</td></tr>
+              <tr><td class="size-name">L</td><td>56</td><td>75-77</td></tr>
+              <tr><td class="size-name">XL</td><td>61</td><td>78-80</td></tr>
+              <tr><td class="size-name">XXL</td><td>64</td><td>81-83</td></tr>
+              <tr><td class="size-name">XXXL</td><td>67</td><td>84-86</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================
+       FOOTER
+       ========================================================== -->
+  <footer class="footer">
+    <div class="wrap">
+      <p class="footer__giant" data-text="GHALAT" aria-hidden="true">GHALAT</p>
+
+      <div class="footer__grid">
+        <p class="footer__brand">
+          GHALAT © 2026
+          <span>SOUTH STOMP HARDCORE — PRINGSEWU</span>
+        </p>
+
+        <nav class="footer__links" aria-label="Link GHALAT">
+          <a href="https://systemghalat.bandcamp.com/album/raw-demo-2026" target="_blank" rel="noopener noreferrer">BANDCAMP ↗</a>
+          <a href="https://www.instagram.com/sys.ghalat" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a>
+          <a id="footerWa" href="https://wa.me/6281996385058" target="_blank" rel="noopener noreferrer">WHATSAPP ↗</a>
+        </nav>
+      </div>
+
+      <p class="footer__bottom">DEMO 2026 MERCH / STATE OF ROT — MALFUNCTION / PRE-ORDER SELAMA SLOT TERSEDIA</p>
+    </div>
+  </footer>
+
+  <script>
+    'use strict';
+
+    /* ==========================================================
+       KONFIGURASI — ubah di sini, jangan berceceran di bawah
+       ========================================================== */
+    const CONFIG = {
+      HARGA_DASAR: 160000,
+      TAMBAHAN_PER_SIZE_NAIK: 5000, // tambahan per tingkat di atas L
+      DP_MINIMAL: 100000,
+      URUTAN_SIZE: ["S", "M", "L", "XL", "XXL", "XXXL"],
+
+      // Angka tabel ukuran: [lebar dada cm, panjang badan cm]
+      TABEL_UKURAN: {
+        S: [46, "68-70"],
+        M: [50, "72-74"],
+        L: [56, "75-77"],
+        XL: [61, "78-80"],
+        XXL: [64, "81-83"],
+        XXXL: [67, "84-86"]
+      },
+
+      BCA: { bank: "BCA", norek: "8445698501", atasNama: "AMRULLAH EMMIR" },
+      WA_BAND: "6281996385058",
+
+      APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbyBKxeZuLe4qtW71OKQnWmcBaOQvXCmQBc_3c8cVDwAbwvoJ0GVcxhc6H2LxnATbSKY/exec",
+      TOKEN: "ghalat-2026",
+      SPREADSHEET_ID: "1ZfIoDny3vz7Yd4G-IR6sZfGxLFwgmiWUQzXWuW2x3s4",
+      SHEET_NAME: "DATA PO"
+    };
+    const PAGE_OPENED_AT = Date.now();
+    const IDX_L = CONFIG.URUTAN_SIZE.indexOf("L");
+
+    /* ==========================================================
+       HELPER
+       ========================================================== */
+    const $ = (selector, root) => (root || document).querySelector(selector);
+    const $$ = (selector, root) => Array.prototype.slice.call((root || document).querySelectorAll(selector));
+
+    const rupiah = (angka) => {
+      const n = Number(angka);
+      return "Rp" + (Number.isFinite(n) ? Math.round(n) : 0).toLocaleString("id-ID");
+    };
+
+    const hitungHargaSatuan = (size) => {
+      const idx = CONFIG.URUTAN_SIZE.indexOf(size);
+      if (idx === -1) return 0;
+      return Math.max(
+        CONFIG.HARGA_DASAR,
+        CONFIG.HARGA_DASAR + (idx - IDX_L) * CONFIG.TAMBAHAN_PER_SIZE_NAIK
+      );
+    };
+
+    const angkaBulat = (value) => {
+      if (value === "" || value === null || typeof value === "boolean") return NaN;
+      const n = Number(value);
+      return Number.isFinite(n) && Math.floor(n) === n ? n : NaN;
+    };
+
+    const normalisasiWA = (value) => {
+      let d = String(value || "").replace(/\D/g, "");
+      if (d.indexOf("620") === 0) {
+        d = "62" + d.slice(3);
+      } else if (d.indexOf("0") === 0) {
+        d = "62" + d.slice(1);
+      } else if (d.indexOf("8") === 0) {
+        d = "62" + d;
+      }
+      return d;
+    };
+
+    const getPembayaran = () => {
+      const checked = $('input[name="pembayaran"]:checked');
+      return checked ? checked.value : "DP";
+    };
+
+    const backendSiap = () => {
+      const url = String(CONFIG.APPS_SCRIPT_URL || "").trim();
+      return /^https?:\/\//i.test(url) && url.indexOf("ISI_") !== 0;
+    };
+
+    /* ==========================================================
+       DOM REFS
+       ========================================================== */
+    const el = {
+      form: $("#orderForm"),
+      formSection: $("#form"),
+      panel: $("#formPanel"),
+      success: $("#sukses"),
+      successTitle: $("#suksesTitle"),
+      alert: $("#formAlert"),
+      errorSummary: $("#errorSummary"),
+      submitBtn: $("#submitBtn"),
+
+      nama: $("#nama"),
+      wa: $("#wa"),
+      alamat: $("#alamat"),
+      size: $("#size"),
+      jumlah: $("#jumlah"),
+      catatan: $("#catatan"),
+      nominal: $("#nominalBayar"),
+      catatanCount: $("#catatanCount"),
+      hp: $("#website"),
+
+      hintNominal: $("#hint-nominal"),
+      summaryNote: $("#summaryNote"),
+      sumUnit: $("#sumUnit"),
+      sumQty: $("#sumQty"),
+      sumTotal: $("#sumTotal"),
+      sumBayar: $("#sumBayar"),
+      sumSisa: $("#sumSisa"),
+
+      suksesKode: $("#suksesKode"),
+      suksesNama: $("#suksesNama"),
+      suksesItem: $("#suksesItem"),
+      suksesTotal: $("#suksesTotal"),
+      suksesBayar: $("#suksesBayar"),
+      suksesSisaRow: $("#suksesSisaRow"),
+      suksesSisa: $("#suksesSisa"),
+      copyKode: $("#copyKode"),
+      waConfirm: $("#waConfirm")
+    };
+
+    const state = {
+      submitting: false,
+      success: false,
+      order: null,
+      lastPayment: "DP",
+      lastDpNominal: String(CONFIG.DP_MINIMAL)
+    };
+
+    /* Live region buat feedback tombol salin */
+    const copyStatus = document.createElement("p");
+    copyStatus.className = "sr-only";
+    copyStatus.setAttribute("aria-live", "polite");
+    document.body.appendChild(copyStatus);
+
+    /* ==========================================================
+       RENDER KONFIG KE HALAMAN
+       ========================================================== */
+    function terapkanConfig() {
+      $$("[data-config]").forEach((node) => {
+        const key = node.getAttribute("data-config");
+        if (key === "harga") node.textContent = rupiah(CONFIG.HARGA_DASAR);
+        if (key === "dp") node.textContent = rupiah(CONFIG.DP_MINIMAL);
+        if (key === "tambahan") node.textContent = "+" + rupiah(CONFIG.TAMBAHAN_PER_SIZE_NAIK);
+        if (key === "bank") node.textContent = CONFIG.BCA.bank + " " + CONFIG.BCA.norek;
+        if (key === "bank-nama") node.textContent = "a/n " + CONFIG.BCA.atasNama;
+        if (key === "bank-nama-plain") node.textContent = CONFIG.BCA.atasNama;
+      });
+
+      const footerWa = $("#footerWa");
+      if (footerWa) footerWa.href = "https://wa.me/" + CONFIG.WA_BAND;
+    }
+
+    function renderTabelUkuran() {
+      const tbody = $("#sizeTableBody");
+      if (!tbody || !CONFIG.TABEL_UKURAN || !CONFIG.URUTAN_SIZE.length) return;
+
+      tbody.textContent = "";
+      CONFIG.URUTAN_SIZE.forEach((size) => {
+        const angka = CONFIG.TABEL_UKURAN[size] || ["-", "-"];
+        const tr = document.createElement("tr");
+        const tdSize = document.createElement("td");
+        const tdDada = document.createElement("td");
+        const tdPanjang = document.createElement("td");
+        tdSize.className = "size-name";
+        tdSize.textContent = size;
+        tdDada.textContent = angka[0] + " CM";
+        tdPanjang.textContent = angka[1] + " CM";
+        tr.appendChild(tdSize);
+        tr.appendChild(tdDada);
+        tr.appendChild(tdPanjang);
+        tbody.appendChild(tr);
+      });
+    }
+
+    function siapkanLogo() {
+      const logo = $("#bandLogo");
+      const teks = $(".logo__text");
+      if (!logo || !teks) return;
+
+      const tampilkanLogo = () => {
+        const ada = logo.complete && logo.naturalWidth > 0;
+        logo.hidden = !ada;
+        teks.hidden = ada;
+      };
+
+      logo.addEventListener("load", tampilkanLogo);
+      logo.addEventListener("error", tampilkanLogo);
+      tampilkanLogo();
+    }
+
+    /* ==========================================================
+       RINGKASAN HARGA LIVE
+       ========================================================== */
+    function updateSummary() {
+      const size = el.size.value;
+      const unit = size ? hitungHargaSatuan(size) : 0;
+      const qtyRaw = parseInt(el.jumlah.value, 10);
+      const qty = Number.isFinite(qtyRaw) && qtyRaw > 0 ? qtyRaw : 1;
+      const total = unit * qty;
+      const pembayaran = getPembayaran();
+      const lunas = pembayaran === "Lunas";
+
+      // Simpan nominal DP terakhir sebelum field dikunci.
+      if (lunas && state.lastPayment !== "Lunas") {
+        state.lastDpNominal = el.nominal.value;
+      }
+
+      if (lunas) {
+        el.nominal.disabled = true;
+        el.nominal.value = String(total);
+      } else {
+        el.nominal.disabled = false;
+        if (state.lastPayment === "Lunas") {
+          el.nominal.value = state.lastDpNominal || String(CONFIG.DP_MINIMAL);
+        }
+      }
+      state.lastPayment = pembayaran;
+
+      let nominal = lunas ? total : Number(el.nominal.value);
+      if (!Number.isFinite(nominal) || nominal < 0) nominal = 0;
+      const sisa = Math.max(total - nominal, 0);
+
+      el.sumUnit.textContent = size ? rupiah(unit) + " / PCS" : "PILIH UKURAN";
+      el.sumQty.textContent = qty + " PCS";
+      el.sumTotal.textContent = total ? rupiah(total) : "Rp0";
+      el.sumBayar.textContent = total ? rupiah(lunas ? total : nominal) : "—";
+      el.sumSisa.textContent = total ? rupiah(sisa) : "—";
+      el.sumSisa.classList.toggle("is-due", total > 0 && !lunas && sisa > 0);
+
+      if (lunas) {
+        el.hintNominal.textContent = "Lunas: nominal otomatis sebesar total. Field dikunci.";
+      } else if (total > 0) {
+        el.hintNominal.textContent = "Minimal Rp100.000. Sisanya dibayar sebelum barang dikirim.";
+      } else {
+        el.hintNominal.textContent = "Minimal Rp100.000. Pilih ukuran dulu buat lihat total.";
+      }
+
+      if (!size || total <= 0) {
+        el.summaryNote.textContent = "Pilih ukuran dan metode bayar buat lihat total.";
+      } else if (lunas) {
+        el.summaryNote.textContent = "Lunas: " + rupiah(total) + " dibayar penuh. Sisa Rp0.";
+      } else if (nominal > total) {
+        el.summaryNote.textContent = "Kelebihan transfer dihitung sebagai donasi. Makasih!";
+      } else if (nominal < CONFIG.DP_MINIMAL) {
+        el.summaryNote.textContent = "DP minimal Rp100.000. Sisa " + rupiah(sisa) + " dibayar nanti.";
+      } else {
+        el.summaryNote.textContent = "Sisa " + rupiah(sisa) + " dibayar sebelum barang dikirim. Simpan bukti transfer.";
+      }
+    }
+
+    /* ==========================================================
+       ERROR FIELD
+       ========================================================== */
+    const ERROR_IDS = {
+      nama: "err-nama",
+      wa: "err-wa",
+      alamat: "err-alamat",
+      size: "err-size",
+      jumlah: "err-jumlah",
+      pembayaran: "err-pembayaran",
+      nominalBayar: "err-nominalBayar",
+      catatan: "err-catatan"
+    };
+
+    function inputUntuk(name) {
+      return $$('[name="' + name + '"]', el.form);
+    }
+
+    function setFieldError(name, pesan) {
+      const errorEl = document.getElementById(ERROR_IDS[name]);
+      if (errorEl) errorEl.textContent = pesan;
+      const inputs = inputUntuk(name);
+      inputs.forEach((input) => {
+        input.setAttribute("aria-invalid", "true");
+        const field = input.closest(".field");
+        if (field) field.classList.add("has-error");
+      });
+    }
+
+    function clearFieldError(name) {
+      const errorEl = document.getElementById(ERROR_IDS[name]);
+      if (errorEl) errorEl.textContent = "";
+      inputUntuk(name).forEach((input) => {
+        input.removeAttribute("aria-invalid");
+        const field = input.closest(".field");
+        if (field) field.classList.remove("has-error");
+      });
+    }
+
+    function clearAllFieldErrors() {
+      $$(".field-error", el.form).forEach((node) => { node.textContent = ""; });
+      $$(".field.has-error", el.form).forEach((field) => field.classList.remove("has-error"));
+      $$("#orderForm [aria-invalid]", el.form).forEach((input) => input.removeAttribute("aria-invalid"));
+      if (el.errorSummary) el.errorSummary.textContent = "";
+    }
+
+    function focusField(name) {
+      const inputs = inputUntuk(name);
+      if (!inputs.length) return;
+      let target = inputs[0];
+      if (target.type === "radio") {
+        target = inputs.filter((input) => input.checked)[0] || target;
+      }
+      try {
+        target.focus({ preventScroll: false });
+      } catch (err) {
+        target.focus();
+      }
+    }
+
+    function showAlert(pesan, bisaRetry) {
+      if (!el.alert) return;
+      el.alert.hidden = false;
+      el.alert.textContent = "";
+
+      const p = document.createElement("p");
+      p.textContent = pesan;
+      el.alert.appendChild(p);
+
+      if (bisaRetry) {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "alert__retry";
+        btn.textContent = "COBA LAGI";
+        btn.addEventListener("click", () => {
+          el.alert.hidden = true;
+          if (el.form.requestSubmit) el.form.requestSubmit();
+          else el.form.dispatchEvent(new Event("submit", { cancelable: true, bubbles: true }));
+        });
+        el.alert.appendChild(btn);
+      }
+
+      if (el.errorSummary) el.errorSummary.textContent = pesan;
+    }
+
+    function hideAlert() {
+      if (!el.alert) return;
+      el.alert.hidden = true;
+      el.alert.textContent = "";
+    }
+
+    /* ==========================================================
+       SALIN KE CLIPBOARD
+       ========================================================== */
+    async function copyText(text, btn) {
+      let ok = false;
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(text);
+          ok = true;
+        }
+      } catch (err) {
+        ok = false;
+      }
+
+      if (!ok) {
+        try {
+          const ta = document.createElement("textarea");
+          ta.value = text;
+          ta.setAttribute("readonly", "");
+          ta.style.position = "fixed";
+          ta.style.left = "-9999px";
+          document.body.appendChild(ta);
+          ta.select();
+          ok = document.execCommand("copy");
+          document.body.removeChild(ta);
+        } catch (err) {
+          ok = false;
+        }
+      }
+
+      if (!ok) {
+        copyStatus.textContent = "Gagal menyalin. Salin manual ya.";
+        return;
+      }
+
+      copyStatus.textContent = "Tersalin: " + text;
+      if (btn) {
+        const label = btn.getAttribute("data-label") || btn.textContent.trim();
+        btn.setAttribute("data-label", label);
+        btn.textContent = "TERSALIN";
+        clearTimeout(btn._timer);
+        btn._timer = setTimeout(() => {
+          btn.textContent = label;
+        }, 2000);
+      }
+    }
+
+    /* ==========================================================
+       VALIDASI FORM
+       ========================================================== */
+    function validasiForm() {
+      clearAllFieldErrors();
+      hideAlert();
+
+      const errors = [];
+      const tambahError = (name, pesan) => errors.push({ name: name, pesan: pesan });
+
+      const nama = el.nama.value.trim().replace(/\s+/g, " ");
+      if (nama.length < 3) tambahError("nama", "Nama minimal 3 karakter.");
+      else if (nama.length > 100) tambahError("nama", "Nama maksimal 100 karakter.");
+
+      const wa = normalisasiWA(el.wa.value);
+      if (!/^628\d{7,11}$/.test(wa)) {
+        tambahError("wa", "Nomor WA nggak valid. Contoh: 081234567890.");
+      }
+
+      const alamat = el.alamat.value.trim().replace(/\r\n/g, "\n");
+      if (alamat.length < 15) tambahError("alamat", "Alamat minimal 15 karakter. Sertakan patokan/kecamatan.");
+      else if (alamat.length > 500) tambahError("alamat", "Alamat maksimal 500 karakter.");
+
+      const size = el.size.value;
+      const sizeValid = CONFIG.URUTAN_SIZE.indexOf(size) !== -1;
+      if (!sizeValid) tambahError("size", "Pilih ukuran dulu.");
+
+      const jumlah = angkaBulat(el.jumlah.value);
+      if (!Number.isFinite(jumlah) || jumlah < 1) tambahError("jumlah", "Jumlah harus angka bulat minimal 1.");
+
+      const pembayaran = getPembayaran();
+      if (pembayaran !== "DP" && pembayaran !== "Lunas") {
+        tambahError("pembayaran", "Pilih DP atau Lunas.");
+      }
+
+      const hargaSatuan = sizeValid ? hitungHargaSatuan(size) : 0;
+      const total = sizeValid && Number.isFinite(jumlah) && jumlah >= 1 ? hargaSatuan * jumlah : 0;
+
+      let nominal = 0;
+      if (pembayaran === "Lunas") {
+        nominal = total;
+      } else {
+        nominal = angkaBulat(el.nominal.value);
+        if (total > 0) {
+          if (!Number.isFinite(nominal)) {
+            tambahError("nominalBayar", "Isi nominal transfer.");
+          } else if (nominal < CONFIG.DP_MINIMAL) {
+            tambahError("nominalBayar", "DP minimal " + rupiah(CONFIG.DP_MINIMAL) + ".");
+          }
+        }
+      }
+
+      if (!Number.isFinite(nominal)) nominal = 0;
+
+      const catatan = el.catatan.value.trim();
+      if (catatan.length > 300) tambahError("catatan", "Catatan maksimal 300 karakter.");
+
+      if (errors.length) {
+        errors.forEach((item) => setFieldError(item.name, item.pesan));
+        el.errorSummary.textContent = "Ada " + errors.length + " isian yang perlu dibenerin. Fokus ke isian pertama.";
+        focusField(errors[0].name);
+        return null;
+      }
+
+      el.wa.value = wa;
+      el.jumlah.value = String(jumlah);
+
+      return {
+        nama: nama,
+        wa: wa,
+        alamat: alamat,
+        size: size,
+        jumlah: jumlah,
+        pembayaran: pembayaran,
+        nominalBayar: pembayaran === "Lunas" ? total : nominal,
+        hargaSatuan: hargaSatuan,
+        total: total,
+        sisa: Math.max(total - (pembayaran === "Lunas" ? total : nominal), 0),
+        catatan: catatan
+      };
+    }
+
+    /* ==========================================================
+       KODE ORDER
+       ========================================================== */
+    function tanggalJakarta() {
+      try {
+        const parts = new Intl.DateTimeFormat("en-GB", {
+          timeZone: "Asia/Jakarta",
+          year: "2-digit",
+          month: "2-digit",
+          day: "2-digit"
+        }).formatToParts(new Date());
+        const map = {};
+        parts.forEach((part) => { map[part.type] = part.value; });
+        return String(map.year).slice(-2) + map.month + map.day;
+      } catch (err) {
+        const d = new Date();
+        const yy = String(d.getFullYear()).slice(-2);
+        const mm = String(d.getMonth() + 1).padStart(2, "0");
+        const dd = String(d.getDate()).padStart(2, "0");
+        return yy + mm + dd;
+      }
+    }
+
+    function buatKodeOrder() {
+      const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+      const buf = new Uint32Array(4);
+
+      if (window.crypto && window.crypto.getRandomValues) {
+        window.crypto.getRandomValues(buf);
+      } else {
+        for (let i = 0; i < 4; i++) buf[i] = Math.floor(Math.random() * 4294967296);
+      }
+
+      let acak = "";
+      for (let i = 0; i < 4; i++) acak += chars.charAt(buf[i] % chars.length);
+      return "GHLT-" + tanggalJakarta() + "-" + acak;
+    }
+
+    /* ==========================================================
+       KIRIM KE APPS SCRIPT
+       ========================================================== */
+    async function postJSON(payload) {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 45000);
+
+      try {
+        const res = await fetch(CONFIG.APPS_SCRIPT_URL, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(payload),
+          signal: controller.signal,
+          redirect: "follow"
+        });
+
+        const text = await res.text();
+        if (!text) throw new Error("Server nggak ngasih balasan. Coba lagi.");
+
+        if (text.trim().charAt(0) === "<") {
+          if (/accounts\.google|sign in|login/i.test(text)) {
+            throw new Error("Web App belum bisa diakses publik. Set deployment-nya ke Anyone.");
+          }
+          throw new Error("Balasan server bukan JSON. Cek deployment Apps Script.");
+        }
+
+        let data;
+        try {
+          data = JSON.parse(text);
+        } catch (err) {
+          throw new Error("Balasan server nggak valid. Coba lagi.");
+        }
+        return data;
+      } catch (err) {
+        if (err && err.name === "AbortError") {
+          throw new Error("Koneksi terlalu lama. Cek internet, lalu coba lagi.");
+        }
+        if (err instanceof TypeError) {
+          throw new Error("Gagal nyambung ke server. Cek koneksi / URL Apps Script.");
+        }
+        throw err;
+      } finally {
+        clearTimeout(timer);
+      }
+    }
+
+    function setSubmitting(aktif) {
+      state.submitting = aktif;
+      el.submitBtn.disabled = aktif;
+      el.form.setAttribute("aria-busy", aktif ? "true" : "false");
+      const label = $(".btn__label", el.submitBtn);
+      const arrow = $(".btn__arrow", el.submitBtn);
+      if (label) label.textContent = aktif ? "MENGIRIM..." : "KIRIM ORDER";
+      if (arrow) arrow.textContent = aktif ? "…" : "→";
+    }
+
+    /* ==========================================================
+       SUBMIT ORDER
+       ========================================================== */
+    async function handleSubmit(event) {
+      event.preventDefault();
+      if (state.submitting || state.success) return;
+
+      if (!backendSiap()) {
+        showAlert("Backend belum disambung. Deploy apps-script/Code.gs dulu, lalu tempel URL Web App ke CONFIG.APPS_SCRIPT_URL di index.html.", false);
+        return;
+      }
+
+      // Honeypot: harus kosong.
+      if (el.hp.value.trim() !== "") {
+        showAlert("Pengiriman diblokir. Muat ulang halaman lalu coba lagi.", false);
+        return;
+      }
+
+      // Bot yang submit kurang dari 2 detik sejak halaman dibuka.
+      if (Date.now() - PAGE_OPENED_AT < 2000) {
+        showAlert("Sabar dulu dua detik, lalu kirim lagi.", true);
+        return;
+      }
+
+      const data = validasiForm();
+      if (!data) return;
+
+      setSubmitting(true);
+
+      try {
+        const payload = {
+          token: CONFIG.TOKEN,
+          kodeOrder: buatKodeOrder(),
+          nama: data.nama,
+          wa: data.wa,
+          alamat: data.alamat,
+          size: data.size,
+          jumlah: data.jumlah,
+          pembayaran: data.pembayaran,
+          nominalBayar: data.nominalBayar,
+          hargaSatuan: data.hargaSatuan,
+          total: data.total,
+          sisa: data.sisa,
+          catatan: data.catatan,
+          ts: new Date().toISOString()
+        };
+
+        const hasil = await postJSON(payload);
+        if (!hasil || hasil.ok !== true) {
+          throw new Error(hasil && hasil.pesan ? hasil.pesan : "Server nolak order. Coba lagi.");
+        }
+
+        const angkaServer = (nilai, cadangan) => {
+          const n = Number(nilai);
+          return Number.isFinite(n) ? n : cadangan;
+        };
+
+        const order = {
+          kodeOrder: hasil.kodeOrder || payload.kodeOrder,
+          nama: data.nama,
+          size: data.size,
+          jumlah: data.jumlah,
+          pembayaran: data.pembayaran,
+          nominalBayar: angkaServer(hasil.nominalBayar, data.nominalBayar),
+          total: angkaServer(hasil.total, data.total),
+          sisa: angkaServer(hasil.sisa, data.sisa),
+          catatan: data.catatan
+        };
+
+        state.order = order;
+        state.success = true;
+        showSuccess(order);
+      } catch (err) {
+        const pesan = err && err.message ? err.message : "Gagal kirim order.";
+        showAlert(pesan + " Data lu masih aman di form. Coba lagi.", true);
+      } finally {
+        if (!state.success) setSubmitting(false);
+      }
+    }
+
+    /* ==========================================================
+       HALAMAN SUKSES
+       ========================================================== */
+    function pesanWhatsApp(order) {
+      const statusBayar = order.pembayaran === "DP"
+        ? "DP " + rupiah(order.nominalBayar) + " (sisa " + rupiah(order.sisa) + ")"
+        : "LUNAS " + rupiah(order.total);
+
+      return [
+        "Halo GHALAT, gua mau konfirmasi pre-order.",
+        "",
+        "Kode order: " + order.kodeOrder,
+        "Nama: " + order.nama,
+        "Size: " + order.size + " x" + order.jumlah,
+        "Total: " + rupiah(order.total),
+        "Status bayar: " + statusBayar,
+        "",
+        "Mohon dicek. Makasih."
+      ].join("\n");
+    }
+
+    function updateWaLink() {
+      if (!state.order) return;
+      el.waConfirm.href = "https://wa.me/" + CONFIG.WA_BAND + "?text=" + encodeURIComponent(pesanWhatsApp(state.order));
+    }
+
+    function showSuccess(order) {
+      el.formSection.hidden = true;
+      el.success.hidden = false;
+
+      el.suksesKode.textContent = order.kodeOrder;
+      el.suksesNama.textContent = order.nama;
+      el.suksesItem.textContent = order.size + " × " + order.jumlah + " PCS";
+      el.suksesTotal.textContent = rupiah(order.total);
+      el.suksesBayar.textContent = rupiah(order.nominalBayar);
+      el.suksesSisa.textContent = rupiah(order.sisa);
+      el.suksesSisaRow.hidden = order.pembayaran !== "DP";
+
+      updateWaLink();
+
+      const kurangiGerak = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      try {
+        el.success.focus({ preventScroll: true });
+        el.success.scrollIntoView({ behavior: kurangiGerak ? "auto" : "smooth", block: "start" });
+      } catch (err) {
+        el.success.scrollIntoView();
+      }
+    }
+
+    /* ==========================================================
+       EVENT LISTENER
+       ========================================================== */
+    function updateCatatanCount() {
+      el.catatanCount.textContent = el.catatan.value.length + "/300";
+    }
+
+    function onFormInput(event) {
+      const target = event.target;
+      if (target.name) clearFieldError(target.name);
+      if (target === el.nominal && getPembayaran() === "DP") {
+        state.lastDpNominal = el.nominal.value;
+      }
+      if (target === el.catatan) updateCatatanCount();
+      updateSummary();
+    }
+
+    function onFormChange(event) {
+      const target = event.target;
+      if (target.name) clearFieldError(target.name);
+      if (target === el.wa) {
+        const normal = normalisasiWA(el.wa.value);
+        if (/^628\d{7,11}$/.test(normal)) el.wa.value = normal;
+      }
+      if (target === el.jumlah && el.jumlah.value.trim() === "") {
+        el.jumlah.value = "1";
+      }
+      updateSummary();
+    }
+
+    function init() {
+      terapkanConfig();
+      renderTabelUkuran();
+      siapkanLogo();
+
+      el.form.addEventListener("submit", handleSubmit);
+      el.form.addEventListener("input", onFormInput);
+      el.form.addEventListener("change", onFormChange);
+
+      el.copyKode.addEventListener("click", () => {
+        if (state.order) copyText(state.order.kodeOrder, el.copyKode);
+      });
+
+      $$(".bank-copy").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const teks = CONFIG.BCA.bank + " " + CONFIG.BCA.norek + " a/n " + CONFIG.BCA.atasNama;
+          copyText(teks, btn);
+        });
+      });
+
+      updateCatatanCount();
+      updateSummary();
+      setSubmitting(false);
+    }
+
+    init();
+
+
+
+
+
+  </script>
+
+
+</body>
+</html>
